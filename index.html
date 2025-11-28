@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dashboard with Profiles Modal</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff3fa;
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
+    text-align: center;
+  }
+  .welcome {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff4f94;
+    margin-bottom: 8px;
+  }
+  .about-us {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 5px 15px rgba(255, 137, 171, 0.25);
+    color: #d36292;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  button#showProfiles {
+    background: #ff7ebc;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 126, 188, 0.5);
+    transition: background 0.3s ease;
+  }
+  button#showProfiles:hover {
+    background: #ff4f94;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .modal-content {
+    background: white;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 850px;
+    box-shadow: 0 8px 25px rgba(255, 137, 171, 0.4);
+    text-align: center;
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4f94;
+    cursor: pointer;
+  }
+  .member-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .member-card {
+    background: #fff0f6;
+    width: 220px;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(255, 137, 171, 0.3);
+    text-align: center;
+    transition: 0.3s;
+  }
+  .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 137, 171, 0.5);
+  }
+  .member-card img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff9bcf;
+    margin-bottom: 12px;
+  }
+  .member-card h3 {
+    margin: 5px 0;
+    color: #ff4f94;
+  }
+  .member-card p {
+    color: #b95784;
+    margin-bottom: 12px;
+  }
+  .member-card a {
+    text-decoration: none;
+    background: #ff7ebc;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  .member-card a:hover {
+    background: #ff4f94;
+  }
+</style>
+</head>
+<body>
+
+  <div class="welcome">Welcome back, Team!</div>
+
+  <div class="about-us">
+    <h2>About Us</h2>
+    <p>
+      We are Group 2 from Bestlink College of the Philippines, BSIT 22013.<br>
+      This dashboard is for our Web Development subject.
+    </p>
+  </div>
+
+  <button id="showProfiles">View Team Profiles</button>
+
+  <div id="profilesModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2 style="color:#ff4f94; margin-bottom: 20px;">💖 Our Members 💖</h2>
+      <div class="member-container">
+
+        <div class="member-card">
+          <img src="/storage/emulated/0/Pictures/Messenger/Messenger_creation_9C9D18BC-1BEA-4253-AAD1-A8DEE53CF84F.png" alt="Princess Callo">
+          <h3>Princess Callo</h3>
+          <p>Leader</p>
+          <a href="callo.html">View Profile</a>
+        </div>
+
+        <div class="member-card">
+          <img src="/storage/emulated/0/Pictures/Messenger/Messenger_creation_1676498913331792.jpeg" alt="Riannabel Aludo">
+          <h3>Riannabel Aludo</h3>
+          <p>Member</p>
+          <a href="aludo.html">View Profile</a>
+        </div>
+
+        <div class="member-card">
+          <img src="/storage/emulated/0/Pictures/Messenger/Messenger_creation_CAA77BF7-85D3-4DE5-830D-AB72287CF19F.jpeg" alt="Rona Rose Montero">
+          <h3>Rona Rose Montero</h3>
+          <p>Member</p>
+          <a href="montero.html">View Profile</a>
+        </div>
+
+        <div class="member-card">
+          <img src="/storage/emulated/0/Pictures/Messenger/Messenger_creation_10007253916066392.jpeg" alt="Anna May Royo">
+          <h3>Anna May Royo</h3>
+          <p>Member</p>
+          <a href="Royo.html">View Profile</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  const modal = document.getElementById('profilesModal');
+  const openBtn = document.getElementById('showProfiles');
+  const closeBtn = document.getElementById('closeModal');
+
+  openBtn.onclick = () => {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; 
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  };
+
+  window.onclick = (event) => {
+    if(event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  };
+</script>
+
+</body>
+</html>
